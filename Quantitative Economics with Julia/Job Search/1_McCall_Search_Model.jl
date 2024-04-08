@@ -57,10 +57,10 @@ function compute_reservation_wage_direct(params; v_iv = collect(w ./ (1 - beta))
     i = 0
     error = Inf
     while i < max_iter && error > tol
-    v_next .= T(v) # (4)
-    error = norm(v_next - v)
-    i += 1
-    v .= v_next  # copy contents into v
+        v_next .= T(v) # (4)
+        error = norm(v_next - v)
+        i += 1
+        v .= v_next  # copy contents into v
     end
     # now compute the reservation wage
     return (1 - beta) * (c + beta * E * v) # (2)
